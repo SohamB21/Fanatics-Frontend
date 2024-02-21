@@ -29,16 +29,19 @@ export default function BannerCube() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+          <img src="https://footballmonk.in/wp-content/uploads/2023/06/Barcelona-home-23-24-1.jpg.webp" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          <img src="https://footballmonk.in/wp-content/uploads/2023/06/Real-madrid-home-1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+          <img src="https://footballmonk.in/wp-content/uploads/2023/06/Man-United-home-23-24-1.jpg.webp" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+          <img src="https://footballmonk.in/wp-content/uploads/2023/10/AS-Roma-Home-kit-23-24-1.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://footballmonk.in/wp-content/uploads/2023/10/Inter-Milan-Home-Kit-23-24-2.jpg" />
         </SwiperSlide>
       </Swiper>
     </>

@@ -21,7 +21,7 @@ const Header = () => {
         timeout = setTimeout(() => {
           setTypingIndex(0);
           setHeadlineIndex((prevIndex) => (prevIndex + 1) % headlines.length);
-        }, 5000); // Pause before switching to the next headline check
+        }, 5000); // Pause before switching to the next headline
       }
     }, 100);
 
