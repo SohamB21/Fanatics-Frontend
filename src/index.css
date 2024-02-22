@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 * {
-  margin: 0;
-  padding: 0;
-  font-family: "Inter", sans-serif;
+	margin: 0;
+	padding: 0;
+	font-family: "Inter", sans-serif;
 }
 
-html{
-  overflow-x: hidden;
+html {
+	overflow-x: hidden;
 }
 ::-webkit-scrollbar {
-  width: 5px;
+	width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #001233;
+	background: #001233;
 }
 ::-webkit-scrollbar-thumb {
-  background: #FFFFFF;
+	background: #ffffff;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0D7164;
+	background: #0d7164;
 }

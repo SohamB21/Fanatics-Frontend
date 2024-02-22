@@ -39,7 +39,7 @@ const Header = () => {
         {/* Displaying Headlines */}
         <div className="flex-grow flex justify-center space-x-6 relative">
           <span
-            className="text-base font-bold text-[#001233]"
+            className="antialiased text-base font-bold text-[#001233]"
             style={{ fontFamily: theme.fonts.quicksand }}
           >
             {headlines[headlineIndex].slice(0, typingIndex)}

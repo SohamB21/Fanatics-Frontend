@@ -34,7 +34,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center justify-center gap-2">
           <span
-            className="pt-1 text-xl text-[#FE5000] text-center"
+            className="antialiased pt-1 text-xl text-[#FE5000] text-center"
             style={{ fontFamily: theme.fonts.russoOne }}
           >
             FANATICS.
@@ -45,9 +45,9 @@ const Navbar = () => {
         <div className="md:hidden">
           <button onClick={toggleMenu}>
             {isMenuOpen ? (
-              <PiX className="w-6 h-6 text-[#FE5000] hover:text-[#A1D5CC]" />
+              <PiX className="antialiased w-6 h-6 text-[#FE5000] hover:text-[#A1D5CC]" />
             ) : (
-              <PiList className="w-6 h-6 text-[#FE5000] hover:text-[#A1D5CC]" />
+              <PiList className="antialiased w-6 h-6 text-[#FE5000] hover:text-[#A1D5CC]" />
             )}
           </button>
         </div>
@@ -61,7 +61,7 @@ const Navbar = () => {
               <li key={path} className="mb-2">
                 <Link
                   to={path}
-                  className={`block text-base uppercase transition-colors duration-300 px-4 py-2 ${index === 0 ? "text-[#FE5000]" : "text-[#EFE0CA]"}`}
+                  className={`antialiased block text-base uppercase transition-colors duration-300 px-4 py-2 ${index === 0 ? "text-[#FE5000]" : "text-[#EFE0CA]"}`}
                   style={{ fontFamily: theme.fonts.fredoka }}
                   onClick={toggleMenu}
                 >
@@ -86,7 +86,7 @@ const Navbar = () => {
             <li key={path}>
               <Link
                 to={path}
-                className={`text-base uppercase transition-colors duration-300 ${
+                className={`antialiased text-base uppercase transition-colors duration-300 ${
                   index === 0
                     ? "text-[#FE5000] hover:text-[#A1D5CC]"
                     : "text-[#EFE0CA] hover:text-[#A1D5CC]"
@@ -103,7 +103,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center">
           <Link
             to="/signin"
-            className="text-base uppercase transition-colors duration-300 flex items-center text-[#FE5000] hover:text-[#A1D5CC]"
+            className="antialiased text-base uppercase transition-colors duration-300 flex items-center text-[#FE5000] hover:text-[#A1D5CC]"
             style={{ fontFamily: theme.fonts.fredoka }}
           >
             <PiSignIn className="w-6 h-6" />
