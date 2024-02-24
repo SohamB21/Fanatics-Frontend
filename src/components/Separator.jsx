@@ -1,20 +1,24 @@
 import React from "react";
-import theme from "../theme";
 
-const Separator = ({ headlines }) => {
+const Separator = ({ headlines, bgColor, textColor }) => {
   return (
     <header className="w-full">
-      <nav className="lg:py-1 md:py-1 py-0.5 flex justify-center items-center bg-[#EFE0CA]">
+      <nav
+        className="lg:py-1 md:py-1 py-0.5 flex justify-center items-center"
+        style={{ backgroundColor: bgColor }}
+      >
         <div
           className={`flex-grow flex lg:flex-row md:flex-row flex-col ${
-            headlines.length === 1 ? "justify-center items-center" : "justify-between"
+            headlines.length === 1
+              ? "justify-center items-center"
+              : "justify-between"
           }`}
-        > 
+        >
           {headlines.map((headline, index) => (
             <div
               key={index}
-              className="antialiased w-full md:w-[33.33%] text-center text-[#001233] font-semibold text-sm uppercase py-1"
-              style={{ fontFamily: theme.fonts.quickSand }}
+              className="antialiased w-full md:w-[33.33%] text-center text-sm uppercase py-1 font-fredoka"
+              style={{ color: textColor }}
             >
               {headline}
             </div>
