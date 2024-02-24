@@ -73,7 +73,7 @@ function JerseyCategory({ categoryName, subHeading, categoryId }) {
     }
 
     return (
-        <div className="flex justify-center">
+        <div id={categoryName} className="flex justify-center">
             <div className="w-11/12 my-20">
                 <div className="flex items-center justify-center text-nowrap font-semibold">
                     <div className="w-1/3 border-b border-double border-teal"></div>
@@ -119,13 +119,13 @@ function JerseyCategory({ categoryName, subHeading, categoryId }) {
                                                 : jersey.description}
                                         </p>
                                         <p className="flex items-center text-orange font-semibold gap-4 text-base">
-                                            <span className="antialiased flex items-center text-navy">
-                                                <PiCurrencyInr />
-                                                {jersey.discounted_price}
-                                            </span>
                                             <span className="antialiased flex items-center line-through decoration-2">
                                                 <PiCurrencyInr />
                                                 {jersey.original_price}
+                                            </span>
+                                            <span className="antialiased flex items-center">
+                                                <PiCurrencyInr />
+                                                {jersey.discounted_price}
                                             </span>
                                             <span className="antialiased flex items-center font-semibold text-base">
                                                 Save <PiCurrencyInr />
