@@ -20,7 +20,6 @@ const Home = () => {
 				textColor="#000000"
 			/>
 			<CategoryManager />
-			<Footer />
 		</div>
 	);
 };

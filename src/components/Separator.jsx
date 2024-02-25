@@ -4,7 +4,7 @@ const Separator = ({ headlines, bgColor, textColor }) => {
   return (
     <header className="w-full">
       <nav
-        className="lg:py-1 md:py-1 py-0.5 flex justify-center items-center"
+        className="lg:py-1 md:py-1 py-0.5 px-2 flex justify-center items-center"
         style={{ backgroundColor: bgColor }}
       >
         <div

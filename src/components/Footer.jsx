@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-navy lg:grid lg:grid-cols-5 mt-10">
+    <footer className="bg-navy lg:grid lg:grid-cols-5 mt-24">
       <div className="relative block h-32 lg:col-span-2 lg:h-full">
         <img
           src={footerImage}

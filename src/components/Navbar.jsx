@@ -17,10 +17,10 @@ const Navbar = () => {
 
   // Nav items
   const navItems = [
-    { label: "Wear Your Passion", path: "/" },
+    { label: "Home", path: "/" },
     { label: "About", path: "/about" },
     { label: "Shop", path: "/shop" },
-    { label: "Sell Jersey", path: "/admin/dashboard" },
+    { label: "Sell Jersey", path: "/sell-jerseys" },
   ];
 
   return (
@@ -57,7 +57,7 @@ const Navbar = () => {
               <li key={path} className="mb-2">
                 <Link
                   to={path}
-                  className={`antialiased block text-base uppercase transition-colors duration-300 px-4 py-2 font-fredoka ${index === 0 ? "text-orange" : "text-cream"}`}
+                  className="antialiased block text-base uppercase transition-colors duration-300 px-4 py-2 font-fredoka text-cream"
                   onClick={toggleMenu}
                 >
                   {label}
@@ -80,11 +80,7 @@ const Navbar = () => {
             <li key={path}>
               <Link
                 to={path}
-                className={`antialiased text-base uppercase transition-colors duration-300 font-fredoka ${
-                  index === 0
-                    ? "text-orange hover:text-lightBlue"
-                    : "text-cream hover:text-lightBlue"
-                }`}
+                className="antialiased text-base uppercase transition-colors duration-300 font-fredoka text-cream hover:text-lightBlue"
               >
                 {label}
               </Link>
