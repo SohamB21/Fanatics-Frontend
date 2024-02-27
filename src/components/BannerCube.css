@@ -5,12 +5,12 @@
   max-height: 400px;
   margin: auto;
   border-radius: 20px;
-} 
+}
 
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  background-color: #FE5000;
+  background-color: #fe5000;
   border-radius: 30%;
 }
 
@@ -21,4 +21,16 @@
   height: 90%;
   object-fit: cover;
   border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .swiper {
+    width: 80%;
+  }
+}
+
+@media (max-width: 320px) {
+  .swiper {
+    width: 65%;
+  }
 }

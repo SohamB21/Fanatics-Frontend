@@ -6,6 +6,7 @@ import {
     PiArrowCircleLeft,
     PiArrowCircleRight,
     PiCurrencyInr,
+    PiStar,
 } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
@@ -85,7 +86,7 @@ function JerseyCategory({ categoryName, subHeading, categoryId }) {
 
                 <div className="flex items-center justify-center text-nowrap">
                     <div className="w-1/5 border-b border-teal"></div>
-                    <div className="mx-4 antialiased text-md uppercase text-teal font-fredoka">
+                    <div className="lg:mx-4 md:mx-2 mx-1 antialiased text-md uppercase text-teal font-fredoka text-wrap text-center">
                         {subHeading}
                     </div>
                     <div className="w-1/5 border-b border-teal"></div>
@@ -112,27 +113,36 @@ function JerseyCategory({ categoryName, subHeading, categoryId }) {
                                             className="h-72 object-contain rounded-md shadow-lg shadow-teal"
                                         />
                                     </div>
-                                    <div className="flex flex-col justify-center items-center w-full p-6 text-center gap-4">
-                                        <p className="antialiased text-navy text-base font-semibold font-inter">
+                                    <div className="flex flex-col justify-center items-center w-full lg:p-6 md:p-4 p-2 text-center gap-4">
+                                        <p className="antialiased text-navy text-lg font-russoOne">
                                             {categoryId === "3"
                                                 ? jersey.title
                                                 : jersey.description}
                                         </p>
-                                        <p className="flex items-center text-orange font-semibold gap-4 text-base">
-                                            <span className="antialiased flex items-center line-through decoration-2">
-                                                <PiCurrencyInr />
-                                                {jersey.original_price}
+                                        <p className="flex space-x-1 rtl:space-x-reverse text-orange items-center">
+                                            <PiStar />
+                                            <PiStar />
+                                            <PiStar />
+                                            <PiStar />
+                                            <PiStar />
+                                            <span className="bg-cream text-xs font-semibold px-2 py-1 rounded ms-3">
+                                                5.0
                                             </span>
-                                            <span className="antialiased flex items-center">
+                                        </p>
+                                        <p className="flex items-center gap-4 text-base uppercase flex-wrap items-center justify-center text-teal">
+                                            <span className="antialiased flex items-center font-semibold font-russoOne text-lg">
                                                 <PiCurrencyInr />
                                                 {jersey.discounted_price}
                                             </span>
-                                            <span className="antialiased flex items-center font-semibold text-base">
+                                            <span className="antialiased flex items-center font-medium gap-px">
                                                 Save <PiCurrencyInr />
                                                 {jersey.original_price -
                                                     jersey.discounted_price}
                                                 !
                                             </span>
+                                            <button className="antialiased flex items-center bg-teal text-offWhite px-3 py-1 rounded-md">
+                                                See Details
+                                            </button>
                                         </p>
                                     </div>
                                 </Link>

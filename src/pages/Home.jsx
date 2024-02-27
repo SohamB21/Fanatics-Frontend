@@ -3,6 +3,7 @@ import Header from "../components/Header.jsx";
 import Banner from "../components/Banner.jsx";
 import Separator from "../components/Separator.jsx";
 import CategoryManager from "../components/CategoryManager.jsx";
+import Review from "../components/Review.jsx";
 import Footer from "../components/Footer.jsx";
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
 				textColor="#000000"
 			/>
 			<CategoryManager />
+			<Review />
 		</div>
 	);
 };
