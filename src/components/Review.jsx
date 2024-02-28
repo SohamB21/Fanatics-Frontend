@@ -9,7 +9,7 @@ const Reviews = () => {
     <section className="flex flex-col items-center justify-center my-20">
       <div className="w-11/12 flex items-center justify-center lg:text-nowrap md:text-nowrap text-wrap font-semibold text-center">
         <div className="w-1/3 border-b border-double border-teal"></div>
-        <div className="mx-4 antialiased text-3xl my-4 uppercase text-navy font-russoOne">
+        <div className="mx-4 antialiased text-3xl uppercase text-navy font-russoOne">
           Fanatics' Testimonials
         </div>
         <div className="w-1/3 border-b border-double border-teal"></div>
@@ -33,7 +33,7 @@ const Reviews = () => {
             />
             <div className="space-y-0.5 font-medium text-left rtl:text-right ms-3 text-navy">
               <div>Bonnie Green</div>
-              <div className="text-sm">Software Developer</div>
+              <div className="text-sm italic">Software Developer</div>
             </div>
           </figcaption>
         </figure>
@@ -54,7 +54,7 @@ const Reviews = () => {
             />
             <div className="space-y-0.5 font-medium text-left rtl:text-right ms-3 text-navy">
               <div>Roberta Casas</div>
-              <div className="text-sm">Lead Designer</div>
+              <div className="text-sm italic">Lead Designer</div>
             </div>
           </figcaption>
         </figure>
@@ -77,7 +77,7 @@ const Reviews = () => {
             />
             <div className="space-y-0.5 font-medium text-left rtl:text-right ms-3 text-navy">
               <div>Jese Leos</div>
-              <div className="text-sm">School Student</div>
+              <div className="text-sm italic">School Student</div>
             </div>
           </figcaption>
         </figure>
@@ -100,7 +100,7 @@ const Reviews = () => {
             />
             <div className="space-y-0.5 font-medium text-left rtl:text-right ms-3 text-navy">
               <div>Joseph McFall</div>
-              <div className="text-sm">A Football Fanatic</div>
+              <div className="text-sm italic">A Football Fanatic</div>
             </div>
           </figcaption>
         </figure>

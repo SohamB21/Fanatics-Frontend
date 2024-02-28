@@ -38,7 +38,7 @@ const SingleJersey = () => {
                     className="lg:w-96 md:w-80 w-full h-auto rounded-md bg-gradient-to-br from-cream to-lightBlue lg:p-4 md:p-4 p-2"
                 />
 
-                <button className="antialiased mt-8 px-4 py-2 bg-navy text-offWhite rounded-md shadow-md hover:bg-orange text-lg">
+                <button className="antialiased mt-8 px-4 py-2 bg-navy text-offWhite rounded-md shadow-md hover:bg-orange text-lg transition duration-500">
                     Buy Now
                 </button>
             </div>
