@@ -20,7 +20,7 @@ export default function BannerCube({ jerseys }) {
       </div>
     );
   }
-  console.log(jerseys);
+  console.log("BannerCube:", jerseys);
 
   return (
     <Swiper
