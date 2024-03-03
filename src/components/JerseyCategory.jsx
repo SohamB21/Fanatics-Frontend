@@ -78,7 +78,7 @@ function JerseyCategory({ categoryName, subHeading, categoryId }) {
             <div className="w-11/12 my-20">
                 <div className="flex items-center justify-center text-nowrap font-semibold">
                     <div className="w-1/3 border-b border-double border-teal"></div>
-                    <div className="mx-4 antialiased text-3xl my-4 uppercase text-navy font-russoOne">
+                    <div className="mx-4 text-3xl my-4 uppercase text-navy font-russoOne">
                         {categoryName}
                     </div>
                     <div className="w-1/3 border-b border-double border-teal"></div>
@@ -86,7 +86,7 @@ function JerseyCategory({ categoryName, subHeading, categoryId }) {
 
                 <div className="flex items-center justify-center text-nowrap">
                     <div className="w-1/5 border-b border-teal"></div>
-                    <div className="lg:mx-4 md:mx-2 mx-1 antialiased text-md uppercase text-teal font-fredoka text-wrap text-center">
+                    <div className="lg:mx-4 md:mx-2 mx-1 text-md uppercase text-teal font-fredoka text-wrap text-center">
                         {subHeading}
                     </div>
                     <div className="w-1/5 border-b border-teal"></div>
@@ -114,7 +114,7 @@ function JerseyCategory({ categoryName, subHeading, categoryId }) {
                                         />
                                     </div>
                                     <div className="flex flex-col justify-center items-center w-full lg:p-6 md:p-4 p-2 text-center gap-4">
-                                        <p className="antialiased text-navy text-lg font-russoOne">
+                                        <p className="text-navy text-lg font-russoOne">
                                             {categoryId === "3"
                                                 ? jersey.title
                                                 : jersey.description}
@@ -130,17 +130,17 @@ function JerseyCategory({ categoryName, subHeading, categoryId }) {
                                             </span>
                                         </p>
                                         <p className="flex items-center gap-4 text-base uppercase flex-wrap items-center justify-center text-teal">
-                                            <span className="antialiased flex items-center font-semibold font-russoOne text-lg">
+                                            <span className="flex items-center font-semibold font-russoOne text-lg">
                                                 <PiCurrencyInr />
                                                 {jersey.discounted_price}
                                             </span>
-                                            <span className="antialiased flex items-center font-medium gap-px">
+                                            <span className="flex items-center font-medium gap-px">
                                                 Save <PiCurrencyInr />
                                                 {jersey.original_price -
                                                     jersey.discounted_price}
                                                 !
                                             </span>
-                                            <button className="antialiased flex items-center bg-teal text-offWhite px-3 py-1 rounded-md">
+                                            <button className="flex items-center bg-teal text-offWhite px-3 py-1 rounded-md">
                                                 See Details
                                             </button>
                                         </p>

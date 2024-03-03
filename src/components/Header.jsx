@@ -35,7 +35,7 @@ const Header = () => {
       <nav className="lg:py-px md:py-0.5 py-1 lg:px-2 px-4 flex justify-center items-center bg-lightBlue lg:mx-40 md:mx-20 lg:rounded-lg md:rounded-lg">
         {/* Displaying Headlines */}
         <div className="flex-grow flex justify-center space-x-6 relative">
-          <span className="antialiased text-base font-bold text-navy font-quicksand">
+          <span className="text-base font-bold text-navy font-quicksand">
             {headlines[headlineIndex].slice(0, typingIndex)}
 
             <span className="px-0.5 h-full border-r-2 border-navy animate-pulse"></span>

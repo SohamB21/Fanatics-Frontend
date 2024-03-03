@@ -38,30 +38,30 @@ const SingleJersey = () => {
                     className="lg:w-96 md:w-80 w-full h-auto rounded-md bg-gradient-to-br from-cream to-lightBlue lg:p-4 md:p-4 p-2"
                 />
 
-                <button className="antialiased mt-8 px-4 py-2 bg-navy text-offWhite rounded-md shadow-md hover:bg-orange text-lg transition duration-500">
+                <button className="mt-8 px-4 py-2 bg-navy text-offWhite rounded-md shadow-md hover:bg-orange text-lg transition duration-500">
                     Buy Now
                 </button>
             </div>
 
             <div className="lg:w-3/5 md:w-1/2 w-full flex-col items-center justify-center space-y-6">
-                <h2 className="antialiased text-navy lg:text-4xl md:text-3xl text-2xl font-russoOne mb-10">
+                <h2 className="text-navy lg:text-4xl md:text-3xl text-2xl font-russoOne mb-10">
                     {title}
                 </h2>
 
-                <p className="antialiased text-navy text-base md:text-lg font-semibold">
+                <p className="text-navy text-base md:text-lg font-semibold">
                     {description}
                 </p>
 
                 <p className="text-navy text-base flex flex-wrap justify-items-start items-center">
-                    <span className="antialiased flex items-center mr-6 my-1">
+                    <span className="flex items-center mr-6 my-1">
                         <PiShieldChevron size={24} className="text-teal" />
                         <span className="ml-1">{team_name}</span>
                     </span>
-                    <span className="antialiased flex items-center mr-6 my-1">
+                    <span className="flex items-center mr-6 my-1">
                         <PiHouse size={24} className="text-teal" />
                         <span className="ml-1">{venue}</span>
                     </span>
-                    <span className="antialiased flex items-center mr-6 my-1">
+                    <span className="flex items-center mr-6 my-1">
                         <PiCalendarCheck size={24} className="text-teal" />
                         <span className="ml-1">
                             {season_start} - {season_end}
@@ -70,21 +70,21 @@ const SingleJersey = () => {
                 </p>
 
                 <p className="flex items-center text-teal gap-4 md:gap-10 flex-wrap">
-                    <span className="antialiased flex items-center text-lg line-through decoration-1">
+                    <span className="flex items-center text-lg line-through decoration-1">
                         <PiCurrencyInr />
                         {original_price}
                     </span>
-                    <span className="antialiased flex items-center text-lg md:text-xl font-semibold font-russoOne gap-1">
+                    <span className="flex items-center text-lg md:text-xl font-semibold font-russoOne gap-1">
                         <PiCurrencyInr />
                         {discounted_price}
                     </span>
-                    <span className="antialiased flex items-center text-base font-semibold border border-teal rounded-full py-2 px-4 bg-gradient-to-br from-cream to-lightBlue text-nowrap">
+                    <span className="flex items-center text-base font-semibold border border-teal rounded-full py-2 px-4 bg-gradient-to-br from-cream to-lightBlue text-nowrap">
                         {percentageOff}% OFF!
                     </span>
                 </p>
 
-                <p className="antialiased flex items-center text-teal text-base gap-4 md:gap-10 flex-wrap">
-                    <span className="antialiased flex items-center font-semibold">
+                <p className="flex items-center text-teal text-base gap-4 md:gap-10 flex-wrap">
+                    <span className="flex items-center font-semibold">
                         {formattedSizes}
                     </span>
                     (Available In All Sizes)
@@ -105,7 +105,7 @@ const SingleJersey = () => {
                     </span>
                 </p>
 
-                <p className="antialiased text-teal text-base font-semibold mb-2 md:mb-4 gap-2">
+                <p className="text-teal text-base font-semibold mb-2 md:mb-4 gap-2">
                     {category}
                 </p>
 

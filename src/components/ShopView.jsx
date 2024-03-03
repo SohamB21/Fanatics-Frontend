@@ -22,23 +22,19 @@ const ShopView = () => {
           title={jersey.title}
           originalPrice={jersey.original_price}
           discountedPrice={jersey.discounted_price}
-          teamName={jersey.team_name}
-          venue={jersey.venue}
-          seasonStart={jersey.season_start}
-          seasonEnd={jersey.season_end}
           category={jersey.category}
         />
       ))
     ) : (
-      <p className="w-full flex items-center justify-center text-teal font-inter">
-        No jerseys available
+      <p className="flex items-center justify-center text-center text-teal">
+        No Jerseys Available
       </p>
     );
 
   return (
     <div className="md:px-4 lg:px-6">
       <div className="w-full mx-auto">
-        <div className="flex flex-wrap justify-center gap-4">{jerseyCards}</div>
+        <div className="flex flex-wrap justify-center gap-8">{jerseyCards}</div>
       </div>
     </div>
   );

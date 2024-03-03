@@ -8,18 +8,18 @@ const Banner = () => {
       <div className="w-full flex flex-col md:flex-row justify-between items-center gap-10">
         {/* Left Side */}
         <div className="md:w-1/2 space-y-14 text-left">
-          <h2 className="antialiased text-orange text-5xl uppercase font-russoOne">
+          <h2 className="text-orange text-5xl uppercase font-russoOne">
             Unleash Your Passion,{" "}
-            <span className="antialiased text-lightBlue font-russoOne">
+            <span className="text-lightBlue font-russoOne">
               Define Your Style
             </span>
           </h2>
-          <p className="antialiased md:w-4/5 text-cream text-left text-base font-fredoka">
+          <p className="md:w-4/5 text-cream text-left text-base font-fredoka">
             Discover the perfect blend of comfort and style with our exclusive
             collection of jerseys. Elevate your game-day look and showcase your
             passion in style.
           </p>
-          <div className="text-base font-inter">
+          <div className="text-base">
             <input
               type="search"
               name="search"
@@ -27,7 +27,7 @@ const Banner = () => {
               placeholder="Find Your Jersey"
               className="py-2 px-4 rounded-md outline-none my-1 mr-4"
             />
-            <button className="antialiased bg-lightBlue px-6 py-2 text-navy hover:bg-orange transition-all ease-in duration-200 rounded-md font-bold my-1">
+            <button className="bg-lightBlue px-6 py-2 text-navy hover:bg-orange transition-all ease-in duration-200 rounded-md font-bold my-1">
               Explore Now
             </button>
           </div>

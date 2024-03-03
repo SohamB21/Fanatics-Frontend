@@ -3,8 +3,13 @@ import App from "../App.jsx";
 import Home from "../pages/Home.jsx";
 import Shop from "../pages/Shop.jsx";
 import About from "../pages/About.jsx";
-import SellJerseys from "../pages/SellJerseys.jsx";
 import SingleJersey from "../pages/SingleJersey.jsx";
+
+import DashboardLayout from "../dashboard/DashboardLayout.jsx";
+import Dashboard from "../dashboard/Dashboard.jsx";
+import UploadBook from "../dashboard/UploadBook.jsx";
+import ManageBooks from "../dashboard/ManageBooks.jsx";
+import EditBooks from "../dashboard/EditBooks.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -24,12 +29,32 @@ const router = createBrowserRouter([
 				element: <About />,
 			},
 			{
-				path: "/sell-jerseys",
-				element: <SellJerseys />,
-			},
-			{
 				path: "/jersey/:id",
 				element: <SingleJersey />,
+				loader: ({ params }) =>
+					fetch(`http://localhost:5000/jersey/${params.id}`),
+			},
+		],
+	},
+	{
+		path: "/admin-dashboard",
+		element: <DashboardLayout />,
+		children: [
+			{
+				path: "/admin-dashboard",
+				element: <Dashboard />,
+			},
+			{
+				path: "/admin-dashboard/upload",
+				element: <UploadBook />,
+			},
+			{
+				path: "/admin-dashboard/manage",
+				element: <ManageBooks />,
+			},
+			{
+				path: "/admin-dashboard/edit/:id",
+				element: <EditBooks />,
 				loader: ({ params }) =>
 					fetch(`http://localhost:5000/jersey/${params.id}`),
 			},

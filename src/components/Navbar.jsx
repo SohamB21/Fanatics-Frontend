@@ -20,7 +20,7 @@ const Navbar = () => {
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
     { label: "Shop", path: "/shop" },
-    { label: "Sell Jersey", path: "/sell-jerseys" },
+    { label: "Sell Jersey", path: "/admin-dashboard" },
   ];
 
   return (
@@ -32,7 +32,7 @@ const Navbar = () => {
       >
         {/* Logo */}
         <Link to="/" className="flex items-center justify-center gap-2">
-          <span className="antialiased pt-1 text-xl text-orange text-center font-russoOne">
+          <span className="pt-1 text-xl text-orange text-center font-russoOne">
             FANATICS.
           </span>
         </Link>
@@ -41,9 +41,9 @@ const Navbar = () => {
         <div className="md:hidden">
           <button onClick={toggleMenu}>
             {isMenuOpen ? (
-              <PiX className="antialiased w-6 h-6 text-orange hover:text-lightBlue" />
+              <PiX className="w-6 h-6 text-orange hover:text-lightBlue" />
             ) : (
-              <PiList className="antialiased w-6 h-6 text-orange hover:text-lightBlue" />
+              <PiList className="w-6 h-6 text-orange hover:text-lightBlue" />
             )}
           </button>
         </div>
@@ -57,7 +57,7 @@ const Navbar = () => {
               <li key={path} className="mb-2">
                 <Link
                   to={path}
-                  className="antialiased block text-base uppercase transition-colors duration-300 px-4 py-2 font-fredoka text-cream"
+                  className="block text-base uppercase transition-colors duration-300 px-4 py-2 font-fredoka text-cream"
                   onClick={toggleMenu}
                 >
                   {label}
@@ -80,7 +80,7 @@ const Navbar = () => {
             <li key={path}>
               <Link
                 to={path}
-                className="antialiased text-base uppercase transition-colors duration-300 font-fredoka text-cream hover:text-lightBlue"
+                className="text-base uppercase transition-colors duration-300 font-fredoka text-cream hover:text-lightBlue"
               >
                 {label}
               </Link>
@@ -92,7 +92,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center">
           <Link
             to="/signin"
-            className="antialiased text-base uppercase transition-colors duration-300 flex items-center text-orange hover:text-lightBlue font-fredoka"
+            className="text-base uppercase transition-colors duration-300 flex items-center text-orange hover:text-lightBlue font-fredoka"
           >
             <PiSignIn className="w-6 h-6" />
             <span className="ml-2">Sign In</span>

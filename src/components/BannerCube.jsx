@@ -15,7 +15,7 @@ import { EffectCube, Pagination } from "swiper/modules";
 export default function BannerCube({ jerseys }) {
   if (!jerseys || jerseys.length === 0) {
     return (
-      <div className="flex items-center justify-center h-full text-lightBlue font-inter">
+      <div className="flex items-center justify-center h-full text-lightBlue">
         Loading...
       </div>
     );

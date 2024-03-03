@@ -28,22 +28,22 @@ const Footer = () => {
             <p>
               <a
                 href="#"
-                className="antialiased block text-2xl font-medium text-offWhite hover:text-orange sm:text-3xl font-russoOne transition duration-500"
+                className="block text-2xl font-medium text-offWhite hover:text-orange sm:text-3xl font-russoOne transition duration-500"
               >
                 FANATICS.
               </a>
             </p>
 
             <ul className="mt-8 space-y-1 text-base text-offWhite">
-              <li className="antialiased text-orange uppercase font-fredoka text-lg">
+              <li className="text-orange uppercase font-fredoka text-lg">
                 Wear. Your. Passion.
               </li>
-              <li className="antialiased flex items-center">
+              <li className="flex items-center">
                 Also Visit
                 <a
                   href="https://soham-banik-portfolio.vercel.app/"
                   target="_blank"
-                  className="antialiased flex items-center hover:text-orange font-fredoka transition duration-500"
+                  className="flex items-center hover:text-orange font-fredoka transition duration-500"
                 >
                   <PiLink size={20} className="mx-1" /> Soham's Portfolio
                 </a>
@@ -56,7 +56,7 @@ const Footer = () => {
                   href="mailto:soham0110banik@gmail.com"
                   rel="noreferrer"
                   target="_blank"
-                  className="antialiased text-offWhite hover:text-orange transition duration-500"
+                  className="text-offWhite hover:text-orange transition duration-500"
                 >
                   <span className="sr-only">Gmail</span>
                   <PiGoogleLogo size={30} />
@@ -67,7 +67,7 @@ const Footer = () => {
                   href="https://github.com/SohamB21"
                   rel="noreferrer"
                   target="_blank"
-                  className="antialiased text-offWhite hover:text-orange transition duration-500"
+                  className="text-offWhite hover:text-orange transition duration-500"
                 >
                   <span className="sr-only">GitHub</span>
                   <PiGithubLogo size={30} />
@@ -78,7 +78,7 @@ const Footer = () => {
                   href="https://www.linkedin.com/in/soham-banik-b13909237/"
                   rel="noreferrer"
                   target="_blank"
-                  className="antialiased text-offWhite hover:text-orange transition duration-500"
+                  className="text-offWhite hover:text-orange transition duration-500"
                 >
                   <span className="sr-only">LinkedIn</span>
                   <PiLinkedinLogo size={30} />
@@ -89,14 +89,14 @@ const Footer = () => {
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <p className="antialiased font-medium text-offWhite font-quicksand">
+              <p className="font-medium text-offWhite font-quicksand">
                 Categories
               </p>
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <a
                     href="#Jersey Sets"
-                    className="antialiased flex items-center gap-2 text-offWhite hover:text-orange transition duration-500"
+                    className="flex items-center gap-2 text-offWhite hover:text-orange transition duration-500"
                   >
                     <PiArrowBendDownRight className="text-lightBlue" />
                     Jersey Sets
@@ -105,7 +105,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="#Retro Jerseys"
-                    className="antialiased flex items-center gap-2 text-offWhite hover:text-orange transition duration-500"
+                    className="flex items-center gap-2 text-offWhite hover:text-orange transition duration-500"
                   >
                     <PiArrowBendDownRight className="text-lightBlue" />
                     Retro Jerseys
@@ -114,7 +114,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="#Training Wears"
-                    className="antialiased flex items-center gap-2 text-offWhite hover:text-orange transition duration-500"
+                    className="flex items-center gap-2 text-offWhite hover:text-orange transition duration-500"
                   >
                     <PiArrowBendDownRight className="text-lightBlue" />
                     Training Wears
@@ -124,14 +124,14 @@ const Footer = () => {
             </div>
 
             <div>
-              <p className="antialiased font-medium text-offWhite font-quicksand">
+              <p className="font-medium text-offWhite font-quicksand">
                 Know More
               </p>
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <Link
-                    to="/sell-jerseys"
-                    className="antialiased flex items-center gap-2 text-offWhite hover:text-orange transition duration-500"
+                    to="/admin-dashboard"
+                    className="flex items-center gap-2 text-offWhite hover:text-orange transition duration-500"
                   >
                     <PiArrowBendDownRight className="text-lightBlue" />
                     Sell Jerseys
@@ -140,7 +140,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/shop"
-                    className="antialiased flex items-center gap-2 text-offWhite hover:text-orange transition duration-500"
+                    className="flex items-center gap-2 text-offWhite hover:text-orange transition duration-500"
                   >
                     <PiArrowBendDownRight className="text-lightBlue" />
                     Shop Jerseys
@@ -149,7 +149,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/about"
-                    className="antialiased flex items-center gap-2 text-offWhite hover:text-orange transition duration-500"
+                    className="flex items-center gap-2 text-offWhite hover:text-orange transition duration-500"
                   >
                     <PiArrowBendDownRight className="text-lightBlue" />
                     About Fanatics
@@ -167,13 +167,13 @@ const Footer = () => {
                 <a
                   href="https://github.com/SohamB21"
                   target="_blank"
-                  className="antialiased flex justify-center items-center gap-2 text-offWhite hover:text-orange transition duration-500"
+                  className="flex justify-center items-center gap-2 text-offWhite hover:text-orange transition duration-500"
                 >
                   Developed By Soham Banik. <PiCode size={20} />
                 </a>
               </li>
             </ul>
-            <p className="antialiased flex items-center gap-1 mt-8 text-sm text-offWhite sm:mt-0">
+            <p className="flex items-center gap-1 mt-8 text-sm text-offWhite sm:mt-0">
               <PiCopyright /> 2024. Fanatics. All rights reserved.
             </p>
           </div>
