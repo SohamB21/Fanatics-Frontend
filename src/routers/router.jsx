@@ -7,9 +7,9 @@ import SingleJersey from "../pages/SingleJersey.jsx";
 
 import DashboardLayout from "../dashboard/DashboardLayout.jsx";
 import Dashboard from "../dashboard/Dashboard.jsx";
-import UploadBook from "../dashboard/UploadBook.jsx";
-import ManageBooks from "../dashboard/ManageBooks.jsx";
-import EditBooks from "../dashboard/EditBooks.jsx";
+import UploadJersey from "../dashboard/UploadJersey.jsx";
+import ManageJerseys from "../dashboard/ManageJerseys.jsx";
+import EditJerseys from "../dashboard/EditJerseys.jsx";
 
 const router = createBrowserRouter([
 	{
@@ -46,15 +46,15 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/admin-dashboard/upload",
-				element: <UploadBook />,
+				element: <UploadJersey />,
 			},
 			{
 				path: "/admin-dashboard/manage",
-				element: <ManageBooks />,
+				element: <ManageJerseys />,
 			},
 			{
 				path: "/admin-dashboard/edit/:id",
-				element: <EditBooks />,
+				element: <EditJerseys />,
 				loader: ({ params }) =>
 					fetch(`http://localhost:5000/jersey/${params.id}`),
 			},

@@ -5,7 +5,7 @@ import { ProSidebarProvider } from "react-pro-sidebar";
 
 const DashboardLayout = () => {
 	return (
-		<div className="flex flex-row gap-2">
+		<div className="flex lg:flex-row md:flex-row flex-col gap-2">
 			<ProSidebarProvider>
 				<div className="md:w-1/4">
 					<Sidebar />
