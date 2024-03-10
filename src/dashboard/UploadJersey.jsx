@@ -1,12 +1,4 @@
 import React, { useState } from "react";
-import {
-	Button,
-	Checkbox,
-	Label,
-	Select,
-	TextInput,
-	Textarea,
-} from "flowbite-react";
 
 const UploadJersey = () => {
 	const venueCategories = [
@@ -18,164 +10,230 @@ const UploadJersey = () => {
 		"Others",
 	];
 
-	const [selectedVenueCategory, setSelectedVenueCategory] = useState(
-		venueCategories[0],
-	);
-	const handleChangedSelectedValue = (event) => {
-		console.log(event.target.value);
-		setSelectedJerseyCategory(event.target.value);
+	const jerseyCategories = ["Jersey Sets", "Retro Jerseys", "Training Wears"];
+
+	const [formData, setFormData] = useState({
+		jerseyTitle: "",
+		teamName: "",
+		imageUrl: "",
+		venueName: venueCategories[0],
+		jerseyDescription: "",
+		seasonStart: "", // corrected the field name
+		seasonEnd: "", // corrected the field name
+	});
+
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+		setFormData((prevData) => ({
+			...prevData,
+			[name]: value,
+		}));
 	};
 
-	const handleJerseySubmit = (event) => {
+	const handleSubmit = (event) => {
 		event.preventDefault();
-		const form = event.target;
-
-		const bookTitle = form.bookTitle.value;
-		const authorName = form.authorName.value;
-		const category = form.categoryName.value;
-		const bookDescription = form.bookDescription.value;
-		const bookPdfUrl = form.bookPdfUrl.value;
-		const imageUrl = form.imageUrl.value;
-
-		const bookObj = {
-			bookTitle,
-			authorName,
-			category,
-			bookDescription,
-			bookPdfUrl,
-			imageUrl,
-		};
-
-		console.log(bookObj);
 
 		fetch("https://ebook-using-mern.onrender.com/upload-book", {
 			method: "POST",
 			headers: {
 				"Content-type": "application/json",
 			},
-			body: JSON.stringify(bookObj),
+			body: JSON.stringify(formData),
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				// console.log(data);
-				alert("Book Uploaded Succesfully!");
-				form.reset();
+				alert("Jersey Uploaded Successfully!");
+				setFormData({
+					jerseyTitle: "",
+					teamName: "",
+					imageUrl: "",
+					venueName: venueCategories[0],
+					jerseyDescription: "",
+					seasonStart: "",
+					seasonEnd: "",
+				});
 			});
 	};
 
-	return (
-		<div className="px-1 mt-12">
-			<h2 className="mb-8 text-3xl font-bold">Upload Jersey</h2>
+	const inputStyle = {
+		label: "text-base text-navy font-semibold font-quicksand",
+		input: "mt-1 p-1 w-full bg-offWhite rounded text-sm border border-cream",
+		select: "mt-1 p-1 w-full bg-offWhite rounded text-sm border border-cream",
+	};
 
-			<form
-				onSubmit={handleJerseySubmit}
-				className="flex lg:w-full flex-col flex-wrap gap-4"
-			>
-				<div className="flex gap-8">
-					{/* Jersey Name */}
-					<div className="lg:w-1/2 md:w-1/2 w-full">
-						<div className="mb-2 block">
-							<Label htmlFor="jerseyTitle" value="Jersey Title" />
-						</div>
-						<TextInput
+	return (
+		<div className="lg:w-full px-3 pt-8 h-screen">
+			<div className="w-11/12 flex items-center justify-center lg:text-nowrap md:text-nowrap text-wrap font-semibold text-center mx-auto mb-6">
+				<div className="w-1/3 border-b border-double border-teal"></div>
+				<div className="mx-4 text-3xl uppercase text-navy font-russoOne">
+					Upload Jersey
+				</div>
+				<div className="w-1/3 border-b border-double border-teal"></div>
+			</div>
+
+			<form onSubmit={handleSubmit} className="flex flex-col gap-8">
+				{/* Jersey Title & Team Name */}
+				<div className="w-full flex flex-row lg:gap-8 md:gap-4 gap-2">
+					<div className="w-1/2 flex flex-col justify-between">
+						<label
+							htmlFor="jerseyTitle"
+							className={inputStyle.label}
+						>
+							Jersey Title
+						</label>
+						<input
 							id="jerseyTitle"
 							name="jerseyTitle"
 							type="text"
-							placeholder="Jersey Title"
+							placeholder="Eg: FC Barcelona Home Jersey 23/24"
+							value={formData.jerseyTitle}
+							onChange={handleChange}
 							required
+							className={inputStyle.input}
 						/>
 					</div>
 
-					{/* Team Name */}
-					<div className="lg:w-1/2">
-						<div className="mb-2 block">
-							<Label htmlFor="teamName" value="Team Name" />
-						</div>
-						<TextInput
+					<div className="w-1/2 flex flex-col justify-between">
+						<label htmlFor="teamName" className={inputStyle.label}>
+							Team Name
+						</label>
+						<input
 							id="teamName"
 							name="teamName"
 							type="text"
-							placeholder="Team name"
+							placeholder="Eg: Real Madrid"
+							value={formData.teamName}
+							onChange={handleChange}
 							required
+							className={inputStyle.input}
 						/>
 					</div>
 				</div>
 
-				<div className="flex gap-8">
-					{/* Image URL */}
-					<div className="lg:w-1/2">
-						<div className="mb-2 block">
-							<Label
-								htmlFor="imageUrl"
-								value="Jersey Image URL"
-							/>
-						</div>
-						<TextInput
+				{/* Jersey Image URL & Jersey Venue */}
+				<div className="w-full flex flex-row lg:gap-8 md:gap-4 gap-2">
+					<div className="w-1/2 flex flex-col justify-between">
+						<label htmlFor="imageUrl" className={inputStyle.label}>
+							Jersey Image URL
+						</label>
+						<input
 							id="imageUrl"
 							name="imageUrl"
 							type="text"
-							placeholder="Jersey image URL"
+							placeholder="Eg: https://footy.in/ManU-home.jpg"
+							value={formData.imageUrl}
+							onChange={handleChange}
 							required
+							className={inputStyle.input}
 						/>
 					</div>
 
-					{/* Venue */}
-					<div className="lg:w-1/2">
-						<div className="mb-2 block">
-							<Label htmlFor="inputState" value="Jersey Venue" />
-						</div>
-
-						<Select
-							id="inputState"
+					<div className="w-1/2 flex flex-col justify-between">
+						<label htmlFor="venueName" className={inputStyle.label}>
+							Jersey Venue
+						</label>
+						<select
+							id="venueName"
 							name="venueName"
-							className="w-full rounded"
-							value={selectedVenueCategory}
-							onChange={handleChangedSelectedValue}
+							className={inputStyle.select}
+							value={formData.venueName}
+							onChange={handleChange}
 						>
 							{venueCategories.map((option) => (
 								<option key={option} value={option}>
 									{option}
 								</option>
 							))}
-						</Select>
+						</select>
 					</div>
 				</div>
 
 				{/* Jersey Description */}
 				<div>
-					<div className="mb-2 block">
-						<Label
-							htmlFor="jerseyDescription"
-							value="Jersey Description"
-						/>
-					</div>
-					<Textarea
+					<label
+						htmlFor="jerseyDescription"
+						className={inputStyle.label}
+					>
+						Jersey Description
+					</label>
+					<textarea
 						id="jerseyDescription"
 						name="jerseyDescription"
-						className="w-full"
-						placeholder="Write the description of the jersey..."
+						className={inputStyle.input}
+						placeholder="Eg: Premium Quality - AS Roma Home Kit 2023/24"
+						value={formData.jerseyDescription}
+						onChange={handleChange}
 						required
 						rows={6}
 					/>
 				</div>
 
-				{/* Season Start and Season End */}
-				<div>
-					<div className="mb-2 block">
-						<Label htmlFor="seasonInfo" value="Season Info" />
+				{/* Season Start & Season End & Jersey Category */}
+				<div className="w-full flex flex-row lg:gap-6 md:gap-4 gap-2">
+					<div className="w-1/3 flex flex-col justify-between">
+						<label
+							htmlFor="seasonStart"
+							className={inputStyle.label}
+						>
+							Season Start
+						</label>
+						<input
+							id="seasonStart"
+							name="seasonStart"
+							type="text"
+							placeholder="Eg: 2008"
+							value={formData.seasonStart}
+							onChange={handleChange}
+							required
+							className={inputStyle.input}
+						/>
 					</div>
-					<TextInput
-						id="seasonInfo"
-						name="seasonInfo"
-						type="text"
-						placeholder="Season Start and Season End"
-						required
-					/>
+
+					<div className="w-1/3 flex flex-col justify-between">
+						<label htmlFor="seasonEnd" className={inputStyle.label}>
+							Season End
+						</label>
+						<input
+							id="seasonEnd"
+							name="seasonEnd"
+							type="text"
+							placeholder="Eg: 2009"
+							value={formData.seasonEnd}
+							onChange={handleChange}
+							required
+							className={inputStyle.input}
+						/>
+					</div>
+
+					<div className="w-1/3 flex flex-col justify-between">
+						<label
+							htmlFor="categoryName"
+							className={inputStyle.label}
+						>
+							Category
+						</label>
+						<select
+							id="categoryName"
+							name="categoryName"
+							className={inputStyle.select}
+							value={formData.categoryName}
+							onChange={handleChange}
+						>
+							{jerseyCategories.map((option) => (
+								<option key={option} value={option}>
+									{option}
+								</option>
+							))}
+						</select>
+					</div>
 				</div>
 
-				<Button type="submit" className="mt-5">
+				<button
+					type="submit"
+					className="mt-4 mb-2 px-4 py-2 bg-navy hover:bg-teal text-offWhite lg:w-1/3 flex items-center justify-center mx-auto transition-colors duration-300 rounded-md"
+				>
 					Upload Jersey
-				</Button>
+				</button>
 			</form>
 		</div>
 	);

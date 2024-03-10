@@ -33,7 +33,7 @@ function Sidebar() {
         />
       ),
       text: "User Name",
-      route: "/",
+      route: "/admin-dashboard",
     },
     {
       icon: <PiUploadSimple className="mr-4 w-6 h-6 text-orange" />,
@@ -85,12 +85,12 @@ function Sidebar() {
       {/* Dropdown */}
       <div className="lg:hidden">
         <div className="dropdown w-screen bg-lightBlue relative">
-          <div className="flex justify-between p-4 text-navy text-xl">
-            <h1 className="font-russoOne hover:text-orange transition-colors duration-300">
-              FANATICS
+          <div className="flex justify-between p-4 text-orange text-xl">
+            <h1 className="font-russoOne hover:text-navy transition-colors duration-300">
+              FANATICS.
             </h1>
             <button
-              className="hover:text-orange transition-colors duration-300"
+              className="hover:text-navy transition-colors duration-300"
               onClick={toggleDropdown}
             >
               {isDropdownOpen ? (
@@ -113,7 +113,7 @@ function Sidebar() {
                 className="block p-2 px-4 hover:text-orange flex items-center"
               >
                 {link.icon}
-                <span className="ml-2">{link.text}</span>
+                {link.text}
               </Link>
             ))}
             {secondLinks.map((link, index) => (
@@ -123,7 +123,7 @@ function Sidebar() {
                 className="block p-2 px-4 hover:text-orange flex items-center"
               >
                 {link.icon}
-                <span className="ml-2">{link.text}</span>
+                {link.text}
               </Link>
             ))}
           </div>
@@ -132,8 +132,8 @@ function Sidebar() {
 
       {/* Sidebar */}
       <div className="hidden lg:flex lg:flex-col justify-between items-center m-0 p-0 lg:py-4 lg:w-56 md:w-100 lg:h-screen md:relative bg-lightBlue fixed inset-y-0 left-0 overflow-auto">
-        <h1 className="p-4 text-navy hover:text-orange font-russoOne text-xl transition-colors duration-300">
-          FANATICS
+        <h1 className="p-4 text-orange hover:text-navy font-russoOne text-xl transition-colors duration-300">
+          FANATICS.
         </h1>
 
         {/* FirstLinks */}
