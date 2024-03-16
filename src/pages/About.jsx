@@ -3,7 +3,7 @@ import FanaticsLogo from "../assets/FanaticsLogo.png";
 
 const About = () => {
 	return (
-		<div className="py-16 px-4 sm:px-6 lg:px-8">
+		<div className="py-16">
 			<div className="w-11/12 flex items-center justify-center lg:text-nowrap md:text-nowrap text-wrap font-semibold text-center mx-auto">
 				<div className="w-1/3 border-b border-double border-teal"></div>
 				<div className="mx-4 text-3xl uppercase text-navy font-russoOne">
