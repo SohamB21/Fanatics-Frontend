@@ -21,6 +21,7 @@ const SingleJersey = () => {
         size,
         category,
         image_url,
+        seller_name,
     } = useLoaderData();
 
     const percentageOff = (
@@ -70,16 +71,20 @@ const SingleJersey = () => {
                 </p>
 
                 <p className="flex items-center text-teal gap-4 md:gap-10 flex-wrap">
-                    <span className="flex items-center text-lg line-through decoration-1">
-                        <PiCurrencyInr />
-                        {original_price}
-                    </span>
+                    {original_price && (
+                        <span className="flex items-center text-lg line-through decoration-1">
+                            <PiCurrencyInr />
+                            {original_price}
+                        </span>
+                    )}
                     <span className="flex items-center text-lg md:text-xl font-semibold font-russoOne gap-1">
                         <PiCurrencyInr />
                         {discounted_price}
                     </span>
                     <span className="flex items-center text-base font-semibold border border-teal rounded-full py-2 px-4 bg-gradient-to-br from-cream to-lightBlue text-nowrap">
-                        {percentageOff}% OFF!
+                        {original_price
+                            ? `${percentageOff}% OFF!`
+                            : "Seller Deal!"}
                     </span>
                 </p>
 
@@ -107,6 +112,7 @@ const SingleJersey = () => {
 
                 <p className="text-teal text-base font-semibold mb-2 md:mb-4 gap-2">
                     {category}
+                    {seller_name ? ` - By ${seller_name}` : ""}
                 </p>
 
                 <p className="text-teal text-sm italic flex flex-col">

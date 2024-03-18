@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 const UploadJersey = () => {
+	const [uploadStatus, setUploadStatus] = useState(false);
+
 	const venueCategories = [
 		"Home",
 		"Away",
@@ -13,13 +15,17 @@ const UploadJersey = () => {
 	const jerseyCategories = ["Jersey Sets", "Retro Jerseys", "Training Wears"];
 
 	const [formData, setFormData] = useState({
-		jerseyTitle: "",
-		teamName: "",
-		imageUrl: "",
-		venueName: venueCategories[0],
-		jerseyDescription: "",
-		seasonStart: "", // corrected the field name
-		seasonEnd: "", // corrected the field name
+		title: "",
+		description: "",
+		team_name: "",
+		venue: venueCategories[0],
+		season_start: "",
+		season_end: "",
+		discounted_price: "",
+		"size": "XS S M L XL XXL",
+		category: jerseyCategories[0],
+		image_url: "",
+		seller_name: "",
 	});
 
 	const handleChange = (event) => {
@@ -28,12 +34,13 @@ const UploadJersey = () => {
 			...prevData,
 			[name]: value,
 		}));
+		console.log(formData);
 	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
-		fetch("https://ebook-using-mern.onrender.com/upload-book", {
+		fetch("http://localhost:5000/upload-jersey", {
 			method: "POST",
 			headers: {
 				"Content-type": "application/json",
@@ -42,15 +49,22 @@ const UploadJersey = () => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				alert("Jersey Uploaded Successfully!");
+				setUploadStatus(true);
+				setTimeout(() => {
+					setUploadStatus(false);
+				}, 5000);
 				setFormData({
-					jerseyTitle: "",
-					teamName: "",
-					imageUrl: "",
-					venueName: venueCategories[0],
-					jerseyDescription: "",
-					seasonStart: "",
-					seasonEnd: "",
+					title: "",
+					description: "",
+					team_name: "",
+					venue: venueCategories[0],
+					season_start: "",
+					season_end: "",
+					discounted_price: "",
+					"size": "XS S M L XL XXL",
+					category: jerseyCategories[0],
+					image_url: "",
+					seller_name: "",
 				});
 			});
 	};
@@ -71,22 +85,19 @@ const UploadJersey = () => {
 				<div className="w-1/3 border-b border-double border-teal"></div>
 			</div>
 
-			<form onSubmit={handleSubmit} className="flex flex-col gap-8">
+			<form onSubmit={handleSubmit} className="flex flex-col gap-4">
 				{/* Jersey Title & Team Name */}
 				<div className="w-full flex flex-row lg:gap-8 md:gap-4 gap-2">
 					<div className="w-1/2 flex flex-col justify-between">
-						<label
-							htmlFor="jerseyTitle"
-							className={inputStyle.label}
-						>
+						<label htmlFor="title" className={inputStyle.label}>
 							Jersey Title
 						</label>
 						<input
-							id="jerseyTitle"
-							name="jerseyTitle"
+							id="title"
+							name="title"
 							type="text"
 							placeholder="Eg: FC Barcelona Home Jersey 23/24"
-							value={formData.jerseyTitle}
+							value={formData.title}
 							onChange={handleChange}
 							required
 							className={inputStyle.input}
@@ -94,15 +105,15 @@ const UploadJersey = () => {
 					</div>
 
 					<div className="w-1/2 flex flex-col justify-between">
-						<label htmlFor="teamName" className={inputStyle.label}>
+						<label htmlFor="team_name" className={inputStyle.label}>
 							Team Name
 						</label>
 						<input
-							id="teamName"
-							name="teamName"
+							id="team_name"
+							name="team_name"
 							type="text"
 							placeholder="Eg: Real Madrid"
-							value={formData.teamName}
+							value={formData.team_name}
 							onChange={handleChange}
 							required
 							className={inputStyle.input}
@@ -113,15 +124,15 @@ const UploadJersey = () => {
 				{/* Jersey Image URL & Jersey Venue */}
 				<div className="w-full flex flex-row lg:gap-8 md:gap-4 gap-2">
 					<div className="w-1/2 flex flex-col justify-between">
-						<label htmlFor="imageUrl" className={inputStyle.label}>
+						<label htmlFor="image_url" className={inputStyle.label}>
 							Jersey Image URL
 						</label>
 						<input
-							id="imageUrl"
-							name="imageUrl"
+							id="image_url"
+							name="image_url"
 							type="text"
 							placeholder="Eg: https://footy.in/ManU-home.jpg"
-							value={formData.imageUrl}
+							value={formData.image_url}
 							onChange={handleChange}
 							required
 							className={inputStyle.input}
@@ -129,14 +140,14 @@ const UploadJersey = () => {
 					</div>
 
 					<div className="w-1/2 flex flex-col justify-between">
-						<label htmlFor="venueName" className={inputStyle.label}>
+						<label htmlFor="venue" className={inputStyle.label}>
 							Jersey Venue
 						</label>
 						<select
-							id="venueName"
-							name="venueName"
+							id="venue"
+							name="venue"
 							className={inputStyle.select}
-							value={formData.venueName}
+							value={formData.venue}
 							onChange={handleChange}
 						>
 							{venueCategories.map((option) => (
@@ -150,18 +161,15 @@ const UploadJersey = () => {
 
 				{/* Jersey Description */}
 				<div>
-					<label
-						htmlFor="jerseyDescription"
-						className={inputStyle.label}
-					>
+					<label htmlFor="description" className={inputStyle.label}>
 						Jersey Description
 					</label>
 					<textarea
-						id="jerseyDescription"
-						name="jerseyDescription"
+						id="description"
+						name="description"
 						className={inputStyle.input}
 						placeholder="Eg: Premium Quality - AS Roma Home Kit 2023/24"
-						value={formData.jerseyDescription}
+						value={formData.description}
 						onChange={handleChange}
 						required
 						rows={6}
@@ -172,33 +180,17 @@ const UploadJersey = () => {
 				<div className="w-full flex flex-row lg:gap-6 md:gap-4 gap-2">
 					<div className="w-1/3 flex flex-col justify-between">
 						<label
-							htmlFor="seasonStart"
+							htmlFor="season_start"
 							className={inputStyle.label}
 						>
 							Season Start
 						</label>
 						<input
-							id="seasonStart"
-							name="seasonStart"
-							type="text"
+							id="season_start"
+							name="season_start"
+							type="number"
 							placeholder="Eg: 2008"
-							value={formData.seasonStart}
-							onChange={handleChange}
-							required
-							className={inputStyle.input}
-						/>
-					</div>
-
-					<div className="w-1/3 flex flex-col justify-between">
-						<label htmlFor="seasonEnd" className={inputStyle.label}>
-							Season End
-						</label>
-						<input
-							id="seasonEnd"
-							name="seasonEnd"
-							type="text"
-							placeholder="Eg: 2009"
-							value={formData.seasonEnd}
+							value={formData.season_start}
 							onChange={handleChange}
 							required
 							className={inputStyle.input}
@@ -207,16 +199,32 @@ const UploadJersey = () => {
 
 					<div className="w-1/3 flex flex-col justify-between">
 						<label
-							htmlFor="categoryName"
+							htmlFor="season_end"
 							className={inputStyle.label}
 						>
+							Season End
+						</label>
+						<input
+							id="season_end"
+							name="season_end"
+							type="number"
+							placeholder="Eg: 2009"
+							value={formData.season_end}
+							onChange={handleChange}
+							required
+							className={inputStyle.input}
+						/>
+					</div>
+
+					<div className="w-1/3 flex flex-col justify-between">
+						<label htmlFor="category" className={inputStyle.label}>
 							Category
 						</label>
 						<select
-							id="categoryName"
-							name="categoryName"
+							id="category"
+							name="category"
 							className={inputStyle.select}
-							value={formData.categoryName}
+							value={formData.category}
 							onChange={handleChange}
 						>
 							{jerseyCategories.map((option) => (
@@ -228,11 +236,54 @@ const UploadJersey = () => {
 					</div>
 				</div>
 
+				{/* Seller Name & Selling Price */}
+				<div className="w-full flex flex-row lg:gap-8 md:gap-4 gap-2">
+					<div className="w-1/2 flex flex-col justify-between">
+						<label
+							htmlFor="seller_name"
+							className={inputStyle.label}
+						>
+							Seller Name
+						</label>
+						<input
+							id="seller_name"
+							name="seller_name"
+							type="text"
+							placeholder="Enter the seller's name"
+							value={formData.seller_name}
+							onChange={handleChange}
+							required
+							className={inputStyle.input}
+						/>
+					</div>
+
+					<div className="w-1/2 flex flex-col justify-between">
+						<label
+							htmlFor="discounted_price"
+							className={inputStyle.label}
+						>
+							Selling Price
+						</label>
+						<input
+							id="discounted_price"
+							name="discounted_price"
+							type="number"
+							placeholder="Enter the selling price"
+							value={formData.discounted_price}
+							onChange={handleChange}
+							required
+							className={inputStyle.input}
+						/>
+					</div>
+				</div>
+
 				<button
 					type="submit"
 					className="mt-4 mb-2 px-4 py-2 bg-navy hover:bg-teal text-offWhite lg:w-1/3 flex items-center justify-center mx-auto transition-colors duration-300 rounded-md"
 				>
-					Upload Jersey
+					{uploadStatus
+						? "Jersey Uploaded Successfully"
+						: "Upload Jersey"}
 				</button>
 			</form>
 		</div>

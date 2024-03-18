@@ -23,6 +23,7 @@ const ShopView = () => {
           originalPrice={jersey.original_price}
           discountedPrice={jersey.discounted_price}
           category={jersey.category}
+          sellerName={jersey.seller_name}
         />
       ))
     ) : (

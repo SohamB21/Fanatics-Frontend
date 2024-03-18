@@ -131,7 +131,7 @@ function Sidebar() {
       </div>
 
       {/* Sidebar */}
-      <div className="hidden lg:flex lg:flex-col justify-between items-center m-0 p-0 lg:py-4 lg:w-56 md:w-100 lg:h-screen md:relative bg-lightBlue fixed inset-y-0 left-0 overflow-auto">
+      <div className="hidden lg:flex lg:flex-col justify-between items-center m-0 p-0 lg:py-4 lg:w-56 md:w-100 lg:h-screen md:relative bg-lightBlue fixed sticky inset-y-0 left-0 overflow-auto">
         <h1 className="p-4 text-orange hover:text-navy font-russoOne text-xl transition-colors duration-300">
           FANATICS.
         </h1>

@@ -135,10 +135,17 @@ function JerseyCategory({ categoryName, subHeading, categoryId }) {
                                                 {jersey.discounted_price}
                                             </span>
                                             <span className="flex items-center font-medium gap-px">
-                                                Save <PiCurrencyInr />
-                                                {jersey.original_price -
-                                                    jersey.discounted_price}
-                                                !
+                                                {jersey.original_price &&
+                                                jersey.discounted_price ? (
+                                                    <>
+                                                        Save <PiCurrencyInr />
+                                                        {jersey.original_price -
+                                                            jersey.discounted_price}
+                                                        !
+                                                    </>
+                                                ) : (
+                                                    "Save Big!"
+                                                )}
                                             </span>
                                             <button className="flex items-center bg-teal text-offWhite px-3 py-1 rounded-md">
                                                 See Details

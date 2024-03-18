@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { PiStar, PiShoppingCart, PiCurrencyInr } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
@@ -9,7 +9,13 @@ const ShopCard = ({
   originalPrice,
   discountedPrice,
   category,
+  sellerName,
 }) => {
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const handleButtonClick = () => {
+    setIsAddedToCart(true);
+  };
+
   return (
     <div className="relative my-5 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-teal shadow-md bg-gradient-to-b from-teal via-offWhite to-lightBlue">
       <div className="relative justify-center mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
@@ -30,12 +36,14 @@ const ShopCard = ({
           <p className="flex justify-center items-center text-navy">
             <span className="text-3xl font-semibold flex justify-center items-center font-russoOne">
               <PiCurrencyInr />
-              {originalPrice}
-            </span>
-            <span className="text-sm line-through flex justify-center items-center">
-              <PiCurrencyInr />
               {discountedPrice}
             </span>
+            {originalPrice && (
+              <span className="text-sm line-through flex justify-center items-center">
+                <PiCurrencyInr />
+                {originalPrice}
+              </span>
+            )}
           </p>
           <div className="flex items-center justify-center">
             <PiStar className={`h-4 w-4 text-orange`} />
@@ -49,12 +57,28 @@ const ShopCard = ({
           </div>
         </div>
         <div className="flex flex-col justify-center gap-5">
-          <p className="text-right text-sm text-navy font-fredoka mx-1">
-            {category}
-          </p>
-          <button className="flex items-center justify-center bg-navy px-5 py-2 text-center text-sm font-medium text-offWhite hover:bg-teal rounded-md w-full">
+          {sellerName && (
+            <div className="flex justify-between">
+              <p className="text-left text-sm text-navy font-fredoka mx-1">
+                By {sellerName}
+              </p>
+              <p className="text-right text-sm text-navy font-fredoka mx-1">
+                {category}
+              </p>
+            </div>
+          )}
+          {!sellerName && (
+            <p className="text-right text-sm text-navy font-fredoka mx-1">
+              {category}
+            </p>
+          )}
+          <button
+            className="flex items-center justify-center bg-navy px-5 py-2 text-center text-sm font-medium text-offWhite hover:bg-teal rounded-md w-full"
+            onClick={handleButtonClick}
+            disabled={isAddedToCart}
+          >
             <PiShoppingCart className="mr-2 h-6 w-6" />
-            Add To Cart
+            {isAddedToCart ? <>Added To Cart</> : <>Add To Cart</>}
           </button>
         </div>
       </div>

@@ -20,10 +20,10 @@ html {
 	width: 5px;
 }
 ::-webkit-scrollbar-track {
-	background: #001233;
+	background: #ffffff;
 }
 ::-webkit-scrollbar-thumb {
-	background: #ffffff;
+	background: #001233;
 }
 ::-webkit-scrollbar-thumb:hover {
 	background: #0d7164;
