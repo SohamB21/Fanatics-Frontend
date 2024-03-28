@@ -27,7 +27,7 @@ const ShopView = () => {
         />
       ))
     ) : (
-      <p className="flex items-center justify-center text-center text-teal">
+      <p className="w-screen text-center text-teal">
         No Jerseys Available
       </p>
     );
