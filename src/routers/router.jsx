@@ -1,20 +1,31 @@
+import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "../App.jsx";
-import Home from "../pages/Home.jsx";
-import Shop from "../pages/Shop.jsx";
-import About from "../pages/About.jsx";
-import SingleJersey from "../pages/SingleJersey.jsx";
+import Spinner from "../components/Spinner.jsx";
 
-import DashboardLayout from "../dashboard/DashboardLayout.jsx";
-import Dashboard from "../dashboard/Dashboard.jsx";
-import UploadJersey from "../dashboard/UploadJersey.jsx";
-import ManageJerseys from "../dashboard/ManageJerseys.jsx";
-import EditJerseys from "../dashboard/EditJerseys.jsx";
+// Lazy loading all the components
+const App = React.lazy(() => import("../App.jsx"));
+const Home = React.lazy(() => import("../pages/Home.jsx"));
+const Shop = React.lazy(() => import("../pages/Shop.jsx"));
+const About = React.lazy(() => import("../pages/About.jsx"));
+const SingleJersey = React.lazy(() => import("../pages/SingleJersey.jsx"));
+const DashboardLayout = React.lazy(
+	() => import("../dashboard/DashboardLayout.jsx")
+);
+const Dashboard = React.lazy(() => import("../dashboard/Dashboard.jsx"));
+const UploadJersey = React.lazy(() => import("../dashboard/UploadJersey.jsx"));
+const ManageJerseys = React.lazy(
+	() => import("../dashboard/ManageJerseys.jsx")
+);
+const EditJerseys = React.lazy(() => import("../dashboard/EditJerseys.jsx"));
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element: <App />,
+		element: (
+			<Suspense fallback={<Spinner />}>
+				<App />
+			</Suspense>
+		),
 		children: [
 			{
 				path: "/",
@@ -38,7 +49,11 @@ const router = createBrowserRouter([
 	},
 	{
 		path: "/admin-dashboard",
-		element: <DashboardLayout />,
+		element: (
+			<Suspense fallback={<Spinner />}>
+				<DashboardLayout />
+			</Suspense>
+		),
 		children: [
 			{
 				path: "/admin-dashboard",

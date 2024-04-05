@@ -90,7 +90,7 @@ const ManageJerseys = () => {
 								</div>
 								<div className="w-2/6 p-2 text-xs lg:text-sm text-center">
 									<Link
-										to={`/admin/dashboard/edit/${jersey._id}`}
+										to={`/admin-dashboard/edit/${jersey._id}`}
 										className="text-navy hover:text-orange font-russoOne mr-1"
 									>
 										Edit
