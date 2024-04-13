@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Spinner from "../components/Spinner.jsx";
+import PrivateRoute from "../privateRoute/PrivateRoute.jsx";
 
 // Lazy loading all the components
 const App = React.lazy(() => import("../App.jsx"));
@@ -17,6 +18,9 @@ const ManageJerseys = React.lazy(
 	() => import("../dashboard/ManageJerseys.jsx")
 );
 const EditJerseys = React.lazy(() => import("../dashboard/EditJerseys.jsx"));
+const Signup = React.lazy(() => import("../pages/Signup.jsx"));
+const Login = React.lazy(() => import("../pages/Login.jsx"));
+const Logout = React.lazy(() => import("../pages/Logout.jsx"));
 
 const router = createBrowserRouter([
 	{
@@ -51,7 +55,9 @@ const router = createBrowserRouter([
 		path: "/admin-dashboard",
 		element: (
 			<Suspense fallback={<Spinner />}>
-				<DashboardLayout />
+				<PrivateRoute>
+					<DashboardLayout />
+				</PrivateRoute>
 			</Suspense>
 		),
 		children: [
@@ -74,6 +80,30 @@ const router = createBrowserRouter([
 					fetch(`http://localhost:5000/jersey/${params.id}`),
 			},
 		],
+	},
+	{
+		path: "signup",
+		element: (
+			<Suspense fallback={<Spinner />}>
+				<Signup />
+			</Suspense>
+		),
+	},
+	{
+		path: "login",
+		element: (
+			<Suspense fallback={<Spinner />}>
+				<Login />
+			</Suspense>
+		),
+	},
+	{
+		path: "logout",
+		element: (
+			<Suspense fallback={<Spinner />}>
+				<Logout />
+			</Suspense>
+		),
 	},
 ]);
 

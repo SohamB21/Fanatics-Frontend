@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { PiList, PiX, PiSignIn } from "react-icons/pi";
+import { PiList, PiX, PiSignIn, PiUser } from "react-icons/pi";
+import { AuthContext } from "../contacts/AuthProvider";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,6 +23,11 @@ const Navbar = () => {
     { label: "Shop", path: "/shop" },
     { label: "Sell Jersey", path: "/admin-dashboard" },
   ];
+
+  const { user } = useContext(AuthContext);
+  if (user) {
+    console.log(user.displayName);
+  }
 
   return (
     <header
@@ -65,11 +71,19 @@ const Navbar = () => {
               </li>
             ))}
             <Link
-              to="/signin"
-              className="text-base uppercase transition-colors duration-300 flex items-center text-orange hover:text-lightBlue px-4 mb-2 font-fredoka"
+              to={user ? "/admin-dashboard" : "/signup"}
+              className="text-sm uppercase transition-colors duration-300 flex items-center text-orange hover:text-lightBlue px-4 mb-2 font-fredoka"
             >
-              <span className="mr-2">Sign In</span>
-              <PiSignIn className="w-6 h-6" />
+              {user ? (
+                <>
+                  <PiUser className="w-6 h-6" />
+                </>
+              ) : (
+                <>
+                  <span className="mr-2">SignUp</span>
+                  <PiSignIn className="w-6 h-6" />
+                </>
+              )}
             </Link>
           </ul>
         </div>
@@ -91,11 +105,19 @@ const Navbar = () => {
         {/* Sign In Option */}
         <div className="hidden md:flex items-center">
           <Link
-            to="/signin"
-            className="text-base uppercase transition-colors duration-300 flex items-center text-orange hover:text-lightBlue font-fredoka"
+            to={user ? "/admin-dashboard" : "/signup"}
+            className="text-sm uppercase transition-colors duration-300 flex items-center text-orange hover:text-lightBlue font-fredoka"
           >
-            <PiSignIn className="w-6 h-6" />
-            <span className="ml-2">Sign In</span>
+            {user ? (
+              <>
+                <PiUser className="w-6 h-6" />
+              </>
+            ) : (
+              <>
+                <PiSignIn className="w-6 h-6" />
+                <span className="ml-2">SignUp</span>
+              </>
+            )}
           </Link>
         </div>
       </nav>

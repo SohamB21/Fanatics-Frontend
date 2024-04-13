@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   PiCaretCircleLeft,
   PiCaretCircleRight,
@@ -15,6 +15,7 @@ import {
 } from "react-icons/pi";
 import userPfp4 from "../assets/userPfp4.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../contacts/AuthProvider";
 
 function Sidebar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -23,16 +24,24 @@ function Sidebar() {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  // fetching details of user and rendering them based on their availability
+  const { user } = useContext(AuthContext);
+  const userEmail = user ? user.email : "";
+  const userName = user
+    ? user.displayName || userEmail.split("@")[0]
+    : "User Name";
+
+  // links which are displayed in the first/middle section
   const firstLinks = [
     {
       icon: (
         <img
-          src={userPfp4}
+          src={user && user.photoURL ? user.photoURL : userPfp4}
           alt="User Pfp"
           className="mr-2 w-8 h-8 border-2 rounded-full border-orange"
         />
       ),
-      text: "User Name",
+      text: userName,
       route: "/admin-dashboard",
     },
     {
@@ -62,23 +71,27 @@ function Sidebar() {
     },
   ];
 
-  const secondLinks = [
-    {
-      icon: <PiSignIn className="mr-4 w-6 h-6 text-orange" />,
-      text: "Sign In",
-      route: "/",
-    },
-    {
-      icon: <PiSignOut className="mr-4 w-6 h-6 text-orange" />,
-      text: "Log Out",
-      route: "/",
-    },
-    {
-      icon: <PiQuestion className="mr-4 w-6 h-6 text-orange" />,
-      text: "Help Fanatics",
-      route: "/",
-    },
-  ];
+  // links which are displayed in the second/bottom section
+  const secondLinks = user
+    ? [
+        {
+          icon: <PiSignOut className="mr-4 w-6 h-6 text-orange" />,
+          text: "Log Out",
+          route: "/logout",
+        },
+      ]
+    : [
+        {
+          icon: <PiSignIn className="mr-4 w-6 h-6 text-orange" />,
+          text: "Sign Up",
+          route: "/signup",
+        },
+      ];
+  secondLinks.push({
+    icon: <PiQuestion className="mr-4 w-6 h-6 text-orange" />,
+    text: "Help Fanatics",
+    route: "/",
+  });
 
   return (
     <main className="flex flex-col lg:flex-row">
