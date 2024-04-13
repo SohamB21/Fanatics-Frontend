@@ -90,7 +90,8 @@ function Sidebar() {
   secondLinks.push({
     icon: <PiQuestion className="mr-4 w-6 h-6 text-orange" />,
     text: "Help Fanatics",
-    route: "/",
+    route: "https://www.buymeacoffee.com/sohamb21",
+    target: "_blank",
   });
 
   return (
@@ -169,6 +170,7 @@ function Sidebar() {
             <Link
               key={index}
               to={link.route}
+              target={link.target ? link.target : undefined}
               className="flex justify-between items-center p-2 text-navy hover:text-orange transition-colors duration-300"
             >
               {link.icon}

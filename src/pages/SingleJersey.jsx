@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     PiCurrencyInr,
     PiShieldChevron,
@@ -28,7 +28,16 @@ const SingleJersey = () => {
         ((original_price - discounted_price) / original_price) *
         100
     ).toFixed(1);
+
     const formattedSizes = size.split(" ").join(" | ");
+
+    const [orderSuccess, setOrderSuccess] = useState(false);
+    const handleBuyNow = () => {
+        setOrderSuccess(true);
+        setTimeout(() => {
+            setOrderSuccess(false);
+        }, 20000); // Set a timeout to hide the message after 10 seconds
+    };
 
     return (
         <div className="lg:flex md:flex items-center justify-center lg:m-12 md:m-6 m-4 lg:gap-6 space-y-6">
@@ -39,9 +48,21 @@ const SingleJersey = () => {
                     className="lg:w-96 md:w-80 w-full h-auto rounded-md bg-gradient-to-br from-cream to-lightBlue lg:p-4 md:p-4 p-2"
                 />
 
-                <button className="mt-8 px-4 py-2 bg-navy text-offWhite rounded-md shadow-md hover:bg-orange text-lg transition duration-500">
-                    Buy Now
+                <button
+                    onClick={handleBuyNow}
+                    disabled={orderSuccess}
+                    className={`mt-8 px-4 py-2 bg-navy text-offWhite rounded-md shadow-md hover:bg-teal text-lg transition duration-500 ${
+                        orderSuccess && "opacity-50 cursor-not-allowed"
+                    }`}
+                >
+                    {orderSuccess ? "Order Placed" : "Buy Now"}
                 </button>
+
+                {orderSuccess && (
+                    <p className="mt-2 text-teal text-sm font-semibold">
+                        Order Successful! We'll reach out to you shortly.
+                    </p>
+                )}
             </div>
 
             <div className="lg:w-3/5 md:w-1/2 w-full flex-col items-center justify-center space-y-6">

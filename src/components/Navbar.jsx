@@ -25,9 +25,9 @@ const Navbar = () => {
   ];
 
   const { user } = useContext(AuthContext);
-  if (user) {
+  /*if (user) {
     console.log(user.displayName);
-  }
+  }*/
 
   return (
     <header

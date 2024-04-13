@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const Logout = () => {
     const { logout } = useContext(AuthContext);
-    const { error, setError } = useState("error");
+    const [error, setError] = useState("");
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -54,6 +54,14 @@ const Logout = () => {
                                 </button>
                             </div>
                         </div>
+
+                        {error ? (
+                            <p className="text-orange text-base text-center mt-2">
+                                Email or Password is incorrect.
+                            </p>
+                        ) : (
+                            ""
+                        )}
                     </div>
                 </div>
             </div>

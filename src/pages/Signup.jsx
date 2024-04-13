@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../contacts/AuthProvider';
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../contacts/AuthProvider";
 import { PiGoogleLogo } from "react-icons/pi";
 
 const Signup = () => {
     const { createUser, loginWithGoogle } = useContext(AuthContext);
-    const { error, setError } = useState("error");
+    const [error, setError] = useState("");
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -61,7 +61,10 @@ const Signup = () => {
                             </h1>
                         </div>
                         <div className="divide-y divide-orange">
-                            <form onSubmit={handleSignUp} className="pt-10 pb-5 text-base leading-6 space-y-4 sm:leading-7">
+                            <form
+                                onSubmit={handleSignUp}
+                                className="pt-10 pb-5 text-base leading-6 space-y-4 sm:leading-7"
+                            >
                                 <div className="relative">
                                     <input
                                         id="email"
@@ -106,11 +109,22 @@ const Signup = () => {
                         </div>
 
                         <div className="flex w-full justify-center items-center flex-col mt-6 gap-3">
-                            <button onClick={handleRegister} className="bg-orange text-offWhite rounded-md px-6 py-2 flex justify-center items-center">
+                            <button
+                                onClick={handleRegister}
+                                className="bg-orange text-offWhite rounded-md px-6 py-2 flex justify-center items-center"
+                            >
                                 <PiGoogleLogo className="w-8 h-8 inline-block mr-2" />
                                 SignUp With Google
                             </button>
                         </div>
+
+                        {error ? (
+                            <p className="text-orange text-base text-center mt-2">
+                                Email or Password is incorrect.
+                            </p>
+                        ) : (
+                            ""
+                        )}
                     </div>
                 </div>
             </div>

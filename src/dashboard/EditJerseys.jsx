@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useParams, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../contacts/AuthProvider";
 
 const EditJerseys = () => {
+	const { user } = useContext(AuthContext);
+	const userEmail = user ? user.email : "";
+	const userName = user
+		? user.displayName || userEmail.split("@")[0]
+		: "User Name";
+	const userId = user.uid;
+
 	const { id } = useParams();
 	const {
 		title,
@@ -43,6 +51,7 @@ const EditJerseys = () => {
 		category: category || jerseyCategories[0],
 		image_url: image_url || "",
 		seller_name: seller_name || "",
+		user_id: userId ? userId : "",
 	});
 
 	const handleChange = (event) => {
@@ -55,7 +64,7 @@ const EditJerseys = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log('Form Data:', formData);
+		console.log("Form Data:", formData);
 
 		fetch(`http://localhost:5000/jersey/${id}`, {
 			method: "PATCH",
@@ -82,6 +91,7 @@ const EditJerseys = () => {
 					category: jerseyCategories[0],
 					image_url: "",
 					seller_name: "",
+					user_id: userId ? userId : "",
 				});
 			});
 	};
@@ -270,6 +280,7 @@ const EditJerseys = () => {
 							value={formData.seller_name}
 							onChange={handleChange}
 							required
+							disabled="true"
 							className={inputStyle.input}
 						/>
 					</div>

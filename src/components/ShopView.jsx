@@ -10,7 +10,7 @@ const ShopView = () => {
       .then((data) => setJerseys(data))
       .catch((error) => console.error("Error fetching jerseys:", error));
   }, []);
-  console.log("ShopView:", jerseys);
+  // console.log("ShopView:", jerseys);
 
   const jerseyCards =
     jerseys && jerseys.length > 0 ? (

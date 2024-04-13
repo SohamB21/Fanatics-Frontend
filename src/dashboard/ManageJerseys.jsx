@@ -1,8 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { PiCurrencyInr } from "react-icons/pi";
+import { AuthContext } from "../contacts/AuthProvider";
 
 const ManageJerseys = () => {
+	const { user } = useContext(AuthContext);
+	const userEmail = user ? user.email : "";
+	const userName = user
+		? user.displayName || userEmail.split("@")[0]
+		: "User Name";
+	const userId = user.uid;
+
 	const [allJerseys, setAllJerseys] = useState([]);
 
 	useEffect(() => {
@@ -11,14 +19,26 @@ const ManageJerseys = () => {
 			.then((data) => setAllJerseys(data));
 	}, []);
 
-	const handleDelete = (id) => {
-		fetch(`http://localhost:5000/jersey/${id}`, {
-			method: "DELETE",
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				window.location.reload();
-			});
+	const handleDelete = (id, user_id) => {
+		if (userId === user_id) {
+			fetch(`http://localhost:5000/jersey/${id}`, {
+				method: "DELETE",
+			})
+				.then((res) => res.json())
+				.then((data) => {
+					window.location.reload();
+				});
+		} else {
+			alert("You are not authorized to delete this jersey.");
+		}
+	};
+
+	const handleEdit = (id, user_id) => {
+		if (userId === user_id) {
+			window.location.href = `/admin-dashboard/edit/${id}`;
+		} else {
+			alert("You are not authorized to edit this jersey.");
+		}
 	};
 
 	return (
@@ -31,6 +51,7 @@ const ManageJerseys = () => {
 				<div className="w-1/3 border-b border-double border-teal"></div>
 			</div>
 
+			{/* Jerseys list */}
 			<div className="flex flex-col lg:w-full">
 				<div className="flex flex-row bg-offWhite border-2 border-lightBlue rounded-lg font-medium text-sm text-center">
 					<div className="w-1/12 p-2 font-quicksand text-xs"></div>
@@ -63,7 +84,7 @@ const ManageJerseys = () => {
 						.filter((jersey) => jersey.seller_name != null)
 						.map((jersey, index) => (
 							<div
-								className="flex flex-row text-center"
+								className={`flex flex-row text-center ${jersey.user_id === userId ? "text-orange" : "text-teal"}`}
 								key={jersey._id}
 							>
 								<div className="w-1/12 p-2 text-xs lg:text-sm">
@@ -89,14 +110,24 @@ const ManageJerseys = () => {
 									{jersey.category}
 								</div>
 								<div className="w-2/6 p-2 text-xs lg:text-sm text-center">
-									<Link
-										to={`/admin-dashboard/edit/${jersey._id}`}
+									<button
+										onClick={() =>
+											handleEdit(
+												jersey._id,
+												jersey.user_id,
+											)
+										}
 										className="text-navy hover:text-orange font-russoOne mr-1"
 									>
 										Edit
-									</Link>
+									</button>
 									<button
-										onClick={() => handleDelete(jersey._id)}
+										onClick={() =>
+											handleDelete(
+												jersey._id,
+												jersey.user_id,
+											)
+										}
 										className="text-navy hover:text-orange font-russoOne ml-1"
 									>
 										Delete

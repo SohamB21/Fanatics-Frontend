@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { AuthContext } from "../contacts/AuthProvider";
 
 const UploadJersey = () => {
+	const { user } = useContext(AuthContext);
+	const userEmail = user ? user.email : "";
+	const userName = user
+		? user.displayName || userEmail.split("@")[0]
+		: "User Name";
+	const userId = user.uid;
+	// console.log("uid: ", userId);
+
 	const [uploadStatus, setUploadStatus] = useState(false);
 
 	const venueCategories = [
@@ -25,7 +34,8 @@ const UploadJersey = () => {
 		size: "XS S M L XL XXL",
 		category: jerseyCategories[0],
 		image_url: "",
-		seller_name: "",
+		seller_name: userName ? userName : "",
+		user_id: userId ? userId : "",
 	});
 
 	const handleChange = (event) => {
@@ -34,7 +44,7 @@ const UploadJersey = () => {
 			...prevData,
 			[name]: value,
 		}));
-		console.log(formData);
+		// console.log(formData);
 	};
 
 	const handleSubmit = (event) => {
@@ -64,7 +74,8 @@ const UploadJersey = () => {
 					size: "XS S M L XL XXL",
 					category: jerseyCategories[0],
 					image_url: "",
-					seller_name: "",
+					seller_name: userName ? userName : "",
+					user_id: userId ? userId : "",
 				});
 			});
 	};
@@ -253,6 +264,7 @@ const UploadJersey = () => {
 							value={formData.seller_name}
 							onChange={handleChange}
 							required
+							disabled={userName !== ""}
 							className={inputStyle.input}
 						/>
 					</div>
