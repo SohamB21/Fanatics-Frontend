@@ -72,7 +72,7 @@ const ManageJerseys = () => {
 						Category
 					</div>
 					<div className="w-2/6 p-2 font-quicksand text-xs">
-						Edit or Manage
+						Action
 					</div>
 				</div>
 				{allJerseys.length <= 15 ? (
