@@ -50,7 +50,7 @@ const UploadJersey = () => {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 
-		fetch("http://localhost:5000/upload-jersey", {
+		fetch(`${import.meta.env.VITE_FANATICS_BACKEND_URL}/upload-jersey`, {
 			method: "POST",
 			headers: {
 				"Content-type": "application/json",

@@ -14,14 +14,14 @@ const ManageJerseys = () => {
 	const [allJerseys, setAllJerseys] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:5000/all-jerseys")
+		fetch(`${import.meta.env.VITE_FANATICS_BACKEND_URL}/all-jerseys`)
 			.then((res) => res.json())
 			.then((data) => setAllJerseys(data));
 	}, []);
 
 	const handleDelete = (id, user_id) => {
 		if (userId === user_id) {
-			fetch(`http://localhost:5000/jersey/${id}`, {
+			fetch(`${import.meta.env.VITE_FANATICS_BACKEND_URL}/jersey/${id}`, {
 				method: "DELETE",
 			})
 				.then((res) => res.json())

@@ -47,7 +47,7 @@ const router = createBrowserRouter([
 				path: "/jersey/:id",
 				element: <SingleJersey />,
 				loader: ({ params }) =>
-					fetch(`http://localhost:5000/jersey/${params.id}`),
+					fetch(`${import.meta.env.VITE_FANATICS_BACKEND_URL}/jersey/${params.id}`),
 			},
 		],
 	},
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
 				path: "/admin-dashboard/edit/:id",
 				element: <EditJerseys />,
 				loader: ({ params }) =>
-					fetch(`http://localhost:5000/jersey/${params.id}`),
+					fetch(`${import.meta.env.VITE_FANATICS_BACKEND_URL}/jersey/${params.id}`),
 			},
 		],
 	},

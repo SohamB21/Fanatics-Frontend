@@ -66,7 +66,7 @@ const EditJerseys = () => {
 		event.preventDefault();
 		console.log("Form Data:", formData);
 
-		fetch(`http://localhost:5000/jersey/${id}`, {
+		fetch(`${import.meta.env.VITE_FANATICS_BACKEND_URL}/jersey/${id}`, {
 			method: "PATCH",
 			headers: {
 				"Content-type": "application/json",

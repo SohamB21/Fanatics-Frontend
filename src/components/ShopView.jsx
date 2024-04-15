@@ -5,7 +5,7 @@ const ShopView = () => {
   const [jerseys, setJerseys] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/all-jerseys")
+    fetch(`${import.meta.env.VITE_FANATICS_BACKEND_URL}/all-jerseys`)
       .then((res) => res.json())
       .then((data) => setJerseys(data))
       .catch((error) => console.error("Error fetching jerseys:", error));

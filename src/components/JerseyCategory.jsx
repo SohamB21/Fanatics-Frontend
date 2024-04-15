@@ -15,7 +15,7 @@ function JerseyCategory({ categoryName, subHeading, categoryId }) {
 
     // fetching data from the database
     useEffect(() => {
-        fetch(`http://localhost:5000/all-jerseys?category=${categoryName}`)
+        fetch(`${import.meta.env.VITE_FANATICS_BACKEND_URL}/all-jerseys?category=${categoryName}`)
             .then((res) => res.json())
             .then((data) => setJerseys(data))
             .catch((error) => console.error("Error fetching data:", error));
