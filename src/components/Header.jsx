@@ -5,7 +5,7 @@ const Header = () => {
   const [headlineIndex, setHeadlineIndex] = useState(0);
   const [typingIndex, setTypingIndex] = useState(0);
   const headlines = [
-    "Huge Savings Await! Enjoy Up To 15% Off On Your First Order With Code Soham15.",
+    "Hugeeeeeee Savings Await! Enjoy Up To 15% Off On Your First Order With Code Soham15.",
     "Jersey Bonanza: Buy More, Save More! Discounts Up To ₹250 With Our Special Offers.",
     "Big Savings Today! Use Code Hi-Fan For 5% Off, Plus Discount On Multiple Purchases.",
   ];
