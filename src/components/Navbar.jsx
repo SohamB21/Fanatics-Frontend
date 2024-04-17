@@ -56,7 +56,7 @@ const Navbar = () => {
 
         {/* Dropdown Menu */}
         <div
-          className={`md:hidden top-16 left-0 right-0 bg-navy shadow-md transition duration-500 ${isMenuOpen ? "absolute" : "hidden"}`}
+          className={`md:hidden top-16 left-0 right-0 bg-navy shadow-md transition duration-500 z-10 ${isMenuOpen ? "absolute" : "hidden"}`}
         >
           <ul className="py-2">
             {navItems.map(({ label, path }, index) => (

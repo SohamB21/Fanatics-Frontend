@@ -90,7 +90,7 @@ function Sidebar() {
   secondLinks.push({
     icon: <PiQuestion className="mr-4 w-6 h-6 text-orange" />,
     text: "Help Fanatics",
-    route: "https://www.buymeacoffee.com/sohamb21",
+    route: "https://buymeacoffee.com/sohamb21",
     target: "_blank",
   });
 

@@ -51,7 +51,7 @@ const ShopCard = ({
             <PiStar className={`h-4 w-4 text-orange`} />
             <PiStar className={`h-4 w-4 text-orange`} />
             <PiStar className={`h-4 w-4 text-orange`} />
-            <span className="mx-1 rounded bg-cream px-2 py-1 text-orange text-xs font-semibold">
+            <span className="mx-1 rounded-full bg-offWhite px-2 py-1 text-orange text-xs font-semibold">
               5.0
             </span>
           </div>

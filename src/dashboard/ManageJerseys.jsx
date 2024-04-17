@@ -102,9 +102,11 @@ const ManageJerseys = () => {
 								<div className="w-2/6 p-2 text-xs lg:text-sm hidden lg:block">
 									{jersey.season_start}-{jersey.season_end}
 								</div>
-								<div className="w-1/6 p-2 text-xs lg:text-sm flex items-center justify-center text-center">
-									<PiCurrencyInr />
-									{jersey.discounted_price}
+								<div className="w-1/6 p-2 text-xs lg:text-sm">
+									<div className="flex items-center justify-center text-center">
+										<PiCurrencyInr />
+										{jersey.discounted_price}
+									</div>
 								</div>
 								<div className="w-2/6 p-2 text-xs lg:text-sm">
 									{jersey.category}
@@ -117,7 +119,7 @@ const ManageJerseys = () => {
 												jersey.user_id,
 											)
 										}
-										className="text-navy hover:text-orange font-russoOne mr-1"
+										className="text-navy hover:text-orange font-russoOne mr-0.5"
 									>
 										Edit
 									</button>
@@ -128,7 +130,7 @@ const ManageJerseys = () => {
 												jersey.user_id,
 											)
 										}
-										className="text-navy hover:text-orange font-russoOne ml-1"
+										className="text-navy hover:text-orange font-russoOne ml-0.5"
 									>
 										Delete
 									</button>

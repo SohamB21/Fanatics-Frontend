@@ -7,10 +7,12 @@ const ShopView = () => {
   useEffect(() => {
     fetch(`${import.meta.env.VITE_FANATICS_BACKEND_URL}/all-jerseys`)
       .then((res) => res.json())
-      .then((data) => setJerseys(data))
+      .then((data) => {
+        setJerseys(data);
+        console.log("Jeresys fetched in ShopView");
+      })
       .catch((error) => console.error("Error fetching jerseys:", error));
   }, []);
-  // console.log("ShopView:", jerseys);
 
   const jerseyCards =
     jerseys && jerseys.length > 0 ? (
@@ -27,9 +29,7 @@ const ShopView = () => {
         />
       ))
     ) : (
-      <p className="w-screen text-center text-teal">
-        No Jerseys Available
-      </p>
+      <p className="w-screen text-center text-teal">No Jerseys Available</p>
     );
 
   return (

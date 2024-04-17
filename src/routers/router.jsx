@@ -37,7 +37,13 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "/shop",
-				element: <Shop />,
+				element: (
+					<Suspense fallback={<Spinner />}>
+						<PrivateRoute>
+							<Shop />
+						</PrivateRoute>
+					</Suspense>
+				),
 			},
 			{
 				path: "/about",
