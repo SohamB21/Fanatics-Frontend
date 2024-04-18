@@ -31,7 +31,7 @@ Fanatics is developed with the passion for sports and the goal of providing fell
 
 ## Get in Touch
 
-For inquiries or collaboration needs, please reach out to Soham Banik through the following channels:
+For inquiries or collaboration needs, please reach out to me - Soham Banik, through the following channels:
 - [LinkedIn](https://www.linkedin.com/in/soham-banik-b13909237/)
 - [GitHub](https://github.com/SohamB21)
 - [Portfolio](https://soham-banik-portfolio.vercel.app/)
