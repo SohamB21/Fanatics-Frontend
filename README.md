@@ -4,7 +4,8 @@ Fanatics is a passion project made using the MERN stack by a sports fan for fell
 
 ## Deployment
 
-The project is hosted and live at [Fanatics Live](https://fanatics-mern.vercel.app/)
+Check out the live hosted project at [Fanatics Live.](https://fanatics-mern.vercel.app/) The website preview on PC and Phone :   
+![Fanatics Preview](https://github.com/SohamB21/Fanatics-Frontend/assets/105418470/00fd4e58-9fb5-467b-b7bb-2a3d9a621a80)
 
 ## Features
 
